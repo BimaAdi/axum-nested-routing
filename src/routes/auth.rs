@@ -1,12 +1,14 @@
-use axum::{response::Json, routing::post, Router};
+use axum::response;
+use axum::routing::post;
+use axum::Router;
 use serde_json::{json, Value};
 
-async fn login() -> Json<Value> {
-    Json(json!({"message":"login"}))
+async fn login() -> response::Json<Value> {
+    response::Json(json!({"message":"login"}))
 }
 
-async fn logout() -> Json<Value> {
-    Json(json!({"message":"logout"}))
+async fn logout() -> response::Json<Value> {
+    response::Json(json!({"message":"logout"}))
 }
 
 pub fn initiate_auth_route() -> Router {
